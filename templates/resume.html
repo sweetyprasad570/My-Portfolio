@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sweety Prasad - Resume</title>
+    <style>
+      @page {
+        size: A4;
+        margin: 0;
+      }
+
+      body {
+        font-family: "Segoe UI", sans-serif;
+        background: #f0f2f5;
+        margin: 0;
+        padding: 20px;
+      }
+
+      .page {
+        width: 210mm;
+        min-height: 297mm;
+        background: white;
+        margin: auto;
+        display: flex;
+        flex-direction: row;
+        box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+        overflow: hidden;
+      }
+
+      .left {
+        width: 35%;
+        background-color: #1f2d3d;
+        color: white;
+        padding: 30px 20px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+
+      .left img {
+        width: 120px;
+        height: 120px;
+        border-radius: 50%;
+        object-fit: cover;
+        margin-bottom: 15px;
+        border: 3px solid white;
+      }
+
+      .left h1 {
+        font-size: 22px;
+        margin-bottom: 5px;
+      }
+
+      .left h3 {
+        font-size: 14px;
+        color: #3498db;
+        font-weight: normal;
+        margin-bottom: 25px;
+      }
+
+      .left .section {
+        width: 100%;
+        margin-bottom: 20px;
+      }
+
+      .left .section h2 {
+        font-size: 14px;
+        border-bottom: 1px solid #3498db;
+        padding-bottom: 5px;
+        margin-bottom: 8px;
+      }
+
+      .left .section p,
+      .left .section ul {
+        font-size: 12px;
+        line-height: 1.5;
+      }
+
+      .left ul {
+        list-style: disc;
+        padding-left: 20px;
+      }
+
+      .right {
+        width: 65%;
+        padding: 30px 25px;
+      }
+
+      .right h2 {
+        font-size: 16px;
+        color: #2c3e50;
+        margin-bottom: 10px;
+        border-bottom: 2px solid #3498db;
+        padding-bottom: 4px;
+      }
+
+      .right p,
+      .right ul {
+        font-size: 13px;
+        color: #333;
+        margin-bottom: 12px;
+      }
+
+      .right ul {
+        list-style: disc;
+        padding-left: 20px;
+      }
+
+      .signature {
+        margin-top: 20px;
+        font-size: 13px;
+      }
+
+      .download-button {
+        text-align: right;
+        margin: 30px auto 0;
+        max-width: 900px;
+      }
+
+      .download-button a {
+        text-decoration: none;
+        background-color: #3498db;
+        color: white;
+        padding: 10px 25px;
+        border-radius: 25px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+      }
+
+      .download-button a:hover {
+        background-color: #2c80b4;
+      }
+
+      @media print {
+        body {
+          background: none;
+        }
+
+        .page {
+          box-shadow: none;
+        }
+
+        .download-button {
+          display: none;
+        }
+      }
+    </style>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+  </head>
+  <body>
+    <div class="page" id="resume-content">
+      <div class="left">
+        <img src="images/sweety.jpg" alt="Sweety Prasad" />
+        <h1>Sweety Prasad</h1>
+        <h3>Frontend Developer</h3>
+
+        <div class="section">
+          <h2>CONTACT</h2>
+          <p>📞 +91 8087560667</p>
+          <p>✉️ sweetyvp1611@gmail.com</p>
+          <p>📍 Pen, Maharashtra</p>
+        </div>
+
+        <div class="section">
+          <h2>SKILLS</h2>
+          <ul>
+            <li>HTML</li>
+            <li>CSS</li>
+            <li>JavaScript</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>LANGUAGES</h2>
+          <ul>
+            <li>English</li>
+            <li>Hindi</li>
+            <li>Marathi</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>STRENGTHS</h2>
+          <ul>
+            <li>Hardworking</li>
+            <li>Honest</li>
+            <li>Punctual</li>
+            <li>Communicative</li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="right">
+        <div class="section">
+          <h2>PROFILE</h2>
+          <p>
+            I am an enthusiastic Frontend Developer with experience in building
+            responsive and user-friendly websites using HTML, CSS, and
+            JavaScript. Passionate about creating smooth user experiences and
+            seeking to contribute to exciting web projects.
+          </p>
+        </div>
+
+        <div class="section">
+          <h2>EDUCATION</h2>
+          <p>
+            <strong>B.Sc in Computer Science</strong><br />Pursuing – Mumbai
+            University
+          </p>
+          <p><strong>HSC:</strong> 55% – Maharashtra Board</p>
+          <p><strong>SSC:</strong> 77% – Maharashtra Board</p>
+        </div>
+
+        <div class="section">
+          <h2>PROJECTS</h2>
+          <ul>
+            <li>Portfolio Website</li>
+            <li>To-Do App</li>
+            <li>Clothing Store UI</li>
+            <li>Stopwatch Web Application</li>
+            <li>Edulearn – Online Learning Platform</li>
+            <li>Tic-Tac-Toe Web Application</li>
+            <li>Weather App</li>
+            <li>Job-Portal Website</li>
+          </ul>
+        </div>
+
+        <div class="section">
+          <h2>DECLARATION</h2>
+          <p>
+            I hereby declare that all the above information is true to the best
+            of my knowledge and belief.
+          </p>
+          <div class="signature">
+            <p><strong>Place:</strong> Pen</p>
+            <p><strong>Date:</strong> _____________</p>
+            <p><strong>Signature:</strong> ______________</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="download-button">
+      <a
+        href="#"
+        id="download-resume-image"
+        style="
+          background-color: #3498db;
+          color: white;
+          padding: 10px 25px;
+          border-radius: 25px;
+          font-weight: bold;
+          text-decoration: none;
+          transition: background-color 0.3s ease;
+        "
+        onmouseover="this.style.backgroundColor='#2c80b4'"
+        onmouseout="this.style.backgroundColor='#3498db'"
+        >Download Resume (Image)</a
+      >
+    </div>
+
+    <script>
+      document
+        .getElementById("download-resume-image")
+        .addEventListener("click", function (event) {
+          event.preventDefault(); // Prevent default link behavior
+
+          const resumeContent = document.getElementById("resume-content");
+
+          html2canvas(resumeContent, {
+            scale: 2, // Increase scale for better quality image
+            logging: false, // Disable logging for cleaner console
+            useCORS: true, // If your image (sweety.jpg) is on a different domain
+          }).then(function (canvas) {
+            const imageData = canvas.toDataURL("image/png"); // Get image data as PNG
+            const link = document.createElement("a");
+            link.href = imageData;
+            link.download = "Sweety_Prasad_Resume.png"; // Set the download filename
+            document.body.appendChild(link);
+            link.click();
+            document.body.removeChild(link);
+          });
+        });
+    </script>
+  </body>
+</html>

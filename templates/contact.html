@@ -1,0 +1,610 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact - Sweety Prasad</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Segoe+UI:wght@400;600;700&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.2/css/all.min.css"
+      integrity="sha512-SnH5WK+bZxgPHs44uWIX+LLJAJ9/2PkPKZ5QiAj6Ta86w+fsb2TkcmfRyVX3pBnMFcV7oQPJkl9QevSCWr3W6A=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+    <style>
+      /* --- GLOBAL STYLES (for sidebar nav and main content layout) --- */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+        font-family: "Segoe UI", sans-serif;
+      }
+
+      body {
+        display: flex; /* This is crucial for sidebar layout */
+        min-height: 100vh;
+        /* Using the professional gradient background from the home page for a consistent look */
+        background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c2b);
+        background-size: 400% 400%;
+        animation: gradientFlow 18s ease infinite;
+        color: #fff; /* Ensures text is visible on dark background */
+      }
+
+      /* Gradient animation keyframes */
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+        50% {
+          background-position: 100% 50%;
+        }
+        100% {
+          background-position: 0% 50%;
+        }
+      }
+
+     
+      header {
+        position: fixed;
+        left: 0;
+        top: 0;
+        height: 100%;
+        width: 220px;
+        background: linear-gradient(180deg, #2c3e50, #34495e);
+        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+        padding: 2rem 1rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        z-index: 1000;
+        border-right: 4px solid #ecf0f1;
+      }
+
+      nav {
+        width: 100%;
+        
+      }
+
+      nav a {
+        display: block;
+        margin: 12px 0;
+        text-decoration: none;
+        padding: 10px 20px;
+        color: #ecf0f1;
+        background: #3d566e;
+        border-radius: 25px;
+        text-align: center;
+        transition: 0.3s;
+        font-weight: bold;
+      }
+
+      nav a:hover {
+        background: #1abc9c;
+        transform: scale(1.05);
+      }
+
+      main {
+        /* Adjust main content to account for the fixed sidebar */
+        margin-left: 220px; /* Same width as header */
+        flex-grow: 1; /* Allow main to take up remaining space */
+        padding: 60px 40px; /* Add internal padding */
+        background-color: white; /* White background for content box */
+        border-radius: 8px; /* Consistent border radius */
+        box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Consistent shadow */
+        margin-top: 40px; /* Padded from top */
+        margin-right: 40px; /* Padded from right */
+        max-width: calc(100% - 220px - 80px); /* Max width considering sidebar and main padding */
+        text-align: center; /* Center content within main */
+      }
+
+      /* --- CONTACT PAGE SPECIFIC STYLES --- */
+      h2 {
+        font-size: 28px;
+        color: #2c3e50;
+        margin-bottom: 20px;
+        border-bottom: 3px solid #3498db;
+        padding-bottom: 10px;
+        display: inline-block;
+        /* Heading Style with 3D Effect (from home.html, applied to h2 here) */
+        font-size: 2.5rem;
+        text-align: center;
+        margin-bottom: 40px;
+        color: #333;
+        text-shadow: 2px 2px 5px rgba(150, 150, 150, 0.3);
+      }
+
+      p.intro-text {
+        font-size: 16px;
+        margin-bottom: 40px;
+        color: #555;
+        max-width: 700px;
+        margin-left: auto;
+        margin-right: auto;
+      }
+
+      .contact-grid {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+        gap: 30px;
+        margin-bottom: 40px;
+      }
+
+      .contact-card {
+        /* Contact Cards with 3D Look (from home.html) */
+        background: linear-gradient(145deg, #ffffff, #e6ecf3);
+        padding: 25px;
+        border-radius: 20px;
+        box-shadow: 8px 8px 20px #d1d9e6, -8px -8px 20px #ffffff;
+        transition: transform 0.3s ease, box-shadow 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+      }
+
+      .contact-card:hover {
+        /* Contact Cards hover (from home.html) */
+        transform: translateY(-8px);
+        box-shadow: 10px 10px 25px #c2cbe1, -10px -10px 25px #ffffff;
+      }
+
+      .contact-card .icon-circle {
+        background-color: #3498db;
+        color: white;
+        width: 60px;
+        height: 60px;
+        border-radius: 50%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 24px;
+        margin-bottom: 20px;
+      }
+
+      .contact-card h3 {
+        font-size: 18px;
+        color: #2c3e50;
+        margin-top: 0;
+        margin-bottom: 10px;
+      }
+
+      .contact-card p,
+      .contact-card a {
+        font-size: 15px;
+        color: #555;
+        text-decoration: none;
+      }
+
+      .contact-card a:hover {
+        color: #3498db;
+      }
+
+      /* Form Styling */
+      .contact-form-section {
+        position: relative; /* Needed for loading overlay */
+      }
+
+      form {
+        max-width: 600px;
+        margin: 0 auto 40px auto;
+        padding: 30px;
+        /* Form Styling with Soft 3D Border (from home.html) */
+        background: linear-gradient(145deg, #ffffff, #e6ecf3);
+        border-radius: 20px;
+        box-shadow: 6px 6px 15px #d1d9e6, -6px -6px 15px #ffffff;
+        transition: box-shadow 0.3s ease;
+        text-align: left;
+      }
+
+      form.loading {
+        opacity: 0.5;
+        pointer-events: none; /* Disable interaction during loading */
+      }
+
+      form label {
+        display: block;
+        font-weight: 600;
+        margin-bottom: 8px;
+        color: #2c3e50;
+      }
+
+      form input[type="text"],
+      form input[type="email"],
+      form textarea {
+        /* Inputs with 3D Soft Look (from home.html) */
+        padding: 15px;
+        border-radius: 10px;
+        border: none;
+        background: #f0f0f3;
+        box-shadow: inset 3px 3px 8px #c2cbe1, inset -3px -3px 8px #ffffff;
+        width: calc(100% - 24px); /* Account for padding */
+        margin-bottom: 20px;
+        font-family: "Segoe UI", sans-serif;
+        font-size: 15px;
+        transition: box-shadow 0.3s ease;
+      }
+
+      form input[type="text"]:focus,
+      form input[type="email"]:focus,
+      form textarea:focus {
+        outline: none;
+        box-shadow: inset 2px 2px 5px #bbc2d0, inset -2px -2px 5px #ffffff;
+      }
+
+      form textarea {
+        resize: vertical;
+        min-height: 120px;
+      }
+
+      form button[type="submit"] {
+        /* Submit Button with Gradient and Depth (from home.html) */
+        background: linear-gradient(to right, #667eea, #764ba2);
+        color: #fff;
+        padding: 14px 28px;
+        border-radius: 12px;
+        border: none;
+        cursor: pointer;
+        box-shadow: 0 6px 15px rgba(102, 126, 234, 0.3);
+        transition: all 0.3s ease;
+      }
+
+      form button[type="submit"]:hover {
+        /* Submit Button hover (from home.html) */
+        background: linear-gradient(to right, #5a67d8, #6b46c1);
+        box-shadow: 0 8px 20px rgba(102, 126, 234, 0.4);
+        transform: translateY(-2px);
+      }
+
+      /* Message Status Area */
+      #form-status {
+        margin-top: 20px;
+        padding: 15px;
+        border-radius: 8px;
+        font-weight: bold;
+        display: none; /* Hidden by default */
+        max-width: 600px;
+        margin-left: auto;
+        margin-right: auto;
+        text-align: center;
+      }
+
+      #form-status.success {
+        background-color: #e6ffe6; /* Light green */
+        color: #28a745; /* Dark green */
+        border: 1px solid #28a745;
+      }
+
+      #form-status.error {
+        background-color: #ffe6e6; /* Light red */
+        color: #dc3545; /* Dark red */
+        border: 1px solid #dc3545;
+      }
+
+      .social-links {
+        margin-top: 40px;
+        display: flex;
+        justify-content: center;
+        gap: 25px;
+      }
+
+      .social-links a {
+        /* Social Links Styling (from home.html) */
+        color: #764ba2;
+        font-size: 1.5rem; /* Adjusted from 30px to 1.5rem for better scaling */
+        margin: 0 10px; /* Adjusted margin */
+        transition: transform 0.3s ease, color 0.3s ease;
+      }
+
+      .social-links a:hover {
+        /* Social Links hover (from home.html) */
+        color: #5a67d8;
+        transform: scale(1.2);
+      }
+
+      /* --- RESPONSIVE ADJUSTMENTS (adapted for global nav) --- */
+      @media (max-width: 768px) {
+        body {
+          flex-direction: column; /* Stack header and main vertically */
+        }
+
+        header {
+          position: static; /* No longer fixed when stacked */
+          width: 100%;
+          height: auto; /* Height adapts to content */
+          flex-direction: row; /* Nav items in a row */
+          justify-content: space-around; /* Distribute nav items */
+          padding: 15px 0; /* Adjust padding */
+          border-right: none;
+          border-bottom: 4px solid #ecf0f1; /* Border on bottom */
+        }
+
+        nav {
+          margin-top: 0; /* Remove top margin for horizontal nav */
+          display: flex;
+          flex-wrap: wrap; /* Allow nav items to wrap */
+          justify-content: center; /* Center nav items horizontally */
+          /* Ensure nav background is still applied in mobile */
+          background: linear-gradient(135deg, #667eea, #764ba2);
+          box-shadow: none; /* Remove shadow for cleaner mobile header */
+        }
+
+        nav a {
+          margin: 5px 10px; /* Adjust margins for horizontal links */
+          padding: 8px 15px; /* Smaller padding */
+          font-size: 0.9em;
+          background: rgba(255, 255, 255, 0.1); /* Keep a subtle background for buttons on mobile */
+          border-radius: 8px; /* Slightly rounded for mobile buttons */
+        }
+
+        main {
+          margin-left: 0; /* No left margin when header is stacked */
+          margin-top: 20px; /* Add some space from the header */
+          margin-right: 20px; /* Consistent side margin */
+          padding: 20px; /* Adjust padding for smaller screens */
+          max-width: unset; /* Remove max-width constraint */
+        }
+
+        h2 {
+          font-size: 24px;
+        }
+
+        .contact-grid {
+          grid-template-columns: 1fr;
+        }
+      }
+
+      @media (max-width: 480px) {
+        nav a {
+          width: 100%;
+          margin: 5px 0;
+        }
+        form {
+          padding: 20px;
+        }
+      }
+      /* --- ANIMATION KEYFRAMES --- */
+      @keyframes fadeInUp {
+        from {
+          opacity: 0;
+          transform: translateY(30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+
+      @keyframes slideInLeft {
+        from {
+          opacity: 0;
+          transform: translateX(-30px);
+        }
+        to {
+          opacity: 1;
+          transform: translateX(0);
+        }
+      }
+
+      @keyframes pulse {
+        0% {
+          transform: scale(1);
+        }
+        50% {
+          transform: scale(1.05);
+        }
+        100% {
+          transform: scale(1);
+        }
+      }
+
+      /* --- APPLYING ANIMATIONS --- */
+      h2 {
+        animation: fadeInUp 0.8s ease-out both;
+      }
+
+      .contact-card {
+        opacity: 0;
+        animation: fadeInUp 0.8s ease forwards;
+      }
+      .contact-card:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .contact-card:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+      .contact-card:nth-child(3) {
+        animation-delay: 0.6s;
+      }
+
+      form {
+        animation: fadeInUp 1s ease-out both;
+        animation-delay: 0.4s;
+      }
+
+      /* Apply slideInLeft animation to nav links */
+      nav a {
+        animation: slideInLeft 0.6s ease both;
+        animation-delay: 0.1s;
+      }
+
+      nav a:nth-child(2) {
+        animation-delay: 0.2s;
+      }
+      nav a:nth-child(3) {
+        animation-delay: 0.3s;
+      }
+      nav a:nth-child(4) {
+        animation-delay: 0.4s;
+      }
+      nav a:nth-child(5) {
+        animation-delay: 0.5s;
+      }
+
+      /* Button subtle pulse on hover */
+      form button[type="submit"]:hover {
+        animation: pulse 0.6s ease-in-out;
+      }
+
+      /* Social icons animation */
+      .social-links a {
+        opacity: 0;
+        animation: fadeInUp 0.6s ease forwards;
+      }
+      .social-links a:nth-child(1) {
+        animation-delay: 0.2s;
+      }
+      .social-links a:nth-child(2) {
+        animation-delay: 0.4s;
+      }
+    </style>
+  </head>
+  <body>
+    <header>
+      <nav>
+        <a href="index.html">Home</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
+      </nav>
+    </header>
+
+    <main>
+      <h2>Let's Connect!</h2>
+      <p class="intro-text">
+        Whether you have a project idea, a question, or just want to say hello,
+        feel free to reach out. I'm always open to new opportunities and collaborations!
+      </p>
+
+      <div class="contact-grid">
+        <div class="contact-card">
+          <div class="icon-circle"><i class="fas fa-envelope"></i></div>
+          <h3>Email Me</h3>
+          <p>Send me an email directly!</p>
+          <a href="mailto:sweetyvp1611@gmail.com">sweetyvp1611@gmail.com</a>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon-circle"><i class="fas fa-phone-alt"></i></div>
+          <h3>Call Me</h3>
+          <p>Prefer to chat? Give me a call.</p>
+          <p>+91 8087560667</p>
+        </div>
+
+        <div class="contact-card">
+          <div class="icon-circle"><i class="fas fa-map-marker-alt"></i></div>
+          <h3>My Location</h3>
+          <p>Based in Pen, Maharashtra</p>
+          <a
+            href="https://www.google.com/maps/search/Pen,+Maharashtra"
+            target="_blank"
+            >View on Map</a
+          >
+        </div>
+      </div>
+
+      <h2 style="margin-top: 30px;">Send a Message</h2>
+      <div class="contact-form-section">
+        <form id="contactForm" action="https://formspree.io/f/xpwrrqkk" method="POST">
+          <label for="name">Your Name</label>
+          <input type="text" id="name" name="name" placeholder="Sweety Prasad" required />
+
+          <label for="email">Your Email</label>
+          <input
+            type="email"
+            id="email"
+            name="_replyto"
+            placeholder="your.email@example.com"
+            required
+          />
+
+          <label for="message">Your Message</label>
+          <textarea
+            id="message"
+            name="message"
+            rows="6"
+            placeholder="I'd love to chat about..."
+            required
+          ></textarea>
+
+          <button type="submit">Send Message</button>
+        </form>
+        <div id="form-status"></div>
+      </div>
+
+      <div class="social-links">
+        <a href="https://linkedin.com/" target="_blank" aria-label="LinkedIn Profile"
+          ><i class="fab fa-linkedin"></i
+        ></a>
+        <a href="https://github.com/" target="_blank" aria-label="GitHub Profile"
+          ><i class="fab fa-github"></i
+        ></a>
+      </div>
+    </main>
+
+    <script>
+      const contactForm = document.getElementById('contactForm');
+      const formStatus = document.getElementById('form-status');
+
+      contactForm.addEventListener('submit', async function (event) {
+        event.preventDefault(); // Prevent default form submission (page reload)
+
+        // Show loading state
+        contactForm.classList.add('loading');
+        formStatus.style.display = 'none'; // Hide previous status message
+
+        const formData = new FormData(contactForm); // Get form data
+        const formEndpoint = contactForm.action; // Get Formspree URL
+
+        try {
+          const response = await fetch(formEndpoint, {
+            method: 'POST',
+            body: formData,
+            headers: {
+              'Accept': 'application/json' // Important for Formspree's API response
+            }
+          });
+
+          if (response.ok) {
+            formStatus.textContent = 'Thank you! Your message has been sent successfully.';
+            formStatus.className = 'success'; // Apply success styles
+            contactForm.reset(); // Clear the form
+          } else {
+            // Attempt to read Formspree's error response
+            const data = await response.json();
+            let errorMessage = 'Oops! There was an error sending your message.';
+
+            // Formspree often provides an 'errors' array if something specific went wrong
+            if (data && data.errors && data.errors.length > 0) {
+              // Check for the specific "form not found" message from Formspree
+              const formNotFoundError = data.errors.find(err => err.code === 'form_not_found');
+              if (formNotFoundError) {
+                errorMessage = 'Oops! There was an error sending your message. Form not found. Please check your Formspree ID and ensure the form is verified.';
+              } else {
+                errorMessage += ' ' + data.errors.map(err => err.message).join('. ');
+              }
+            } else if (response.status === 404) {
+              // Generic 404 for clarity if Formspree doesn't give a specific error message structure
+              errorMessage = 'Oops! The form endpoint was not found (404 error). Please double-check your Formspree URL.';
+            }
+
+            formStatus.textContent = errorMessage;
+            formStatus.className = 'error'; // Apply error styles
+          }
+        } catch (error) {
+          formStatus.textContent = 'Network error. Please check your internet connection and try again.';
+          formStatus.className = 'error'; // Apply error styles
+          console.error('Submission error:', error);
+        } finally {
+          // Hide loading state and show status message
+          contactForm.classList.remove('loading');
+          formStatus.style.display = 'block';
+        }
+      });
+    </script>
+  </body>
+</html>
