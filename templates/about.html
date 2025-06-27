@@ -23,44 +23,69 @@
         background: #f0f2f5; /* Using main background from other pages */
       }
 
-      header {
-        position: fixed; /* Makes the sidebar stay in place */
-        left: 0;
-        top: 0;
-        height: 100%;
-        width: 220px;
-        background: linear-gradient(180deg, #2c3e50, #34495e); /* Dark gradient background */
-        box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
-        padding: 2rem 1rem;
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        z-index: 1000;
-        border-right: 4px solid #ecf0f1;
-      }
+     header {
+  position: fixed;
+  left: 0;
+  top: 0;
+  height: 100%;
+  width: 220px;
+  background: linear-gradient(180deg, #2c3e50, #34495e);
+  box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+  padding: 2rem 1rem;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  z-index: 100;
+  border-right: 4px solid #ecf0f1;
+}
 
-      nav {
-        width: 100%;
-        margin-top: 50px; /* Space from top of header */
-      }
+nav {
+  width: 100%;
+  margin-top: 50px;
+  z-index: 200;
+}
 
-      nav a {
-        display: block;
-        margin: 12px 0;
-        text-decoration: none;
-        padding: 10px 20px;
-        color: #ecf0f1;
-        background: #3d566e; /* Slightly lighter dark background for links */
-        border-radius: 25px;
-        text-align: center;
-        transition: 0.3s;
-        font-weight: bold;
-      }
+nav a {
+  display: block;
+  margin: 12px 0;
+  text-decoration: none;
+  padding: 10px 20px;
+  color: #ecf0f1;
+  background: #3d566e;
+  border-radius: 25px;
+  text-align: center;
+  transition: all 0.3s ease;
+  font-weight: bold;
+  position: relative;
+  z-index: 200;
+}
 
-      nav a:hover {
-        background: #1abc9c; /* Green accent on hover */
-        transform: scale(1.05);
-      }
+nav a:hover {
+  background: #1abc9c;
+  transform: scale(1.03); /* Prevent too much grow */
+  color: #ffffff;
+}
+
+nav a::after {
+  content: '';
+  position: absolute;
+  left: 20%;
+  bottom: 6px;
+  width: 60%;
+  height: 3px;
+  background: #1abc9c;
+  opacity: 0;
+  transform: scaleX(0);
+  transition: 0.4s ease;
+  border-radius: 2px;
+  z-index: 199;
+}
+
+nav a:hover::after {
+  opacity: 1;
+  transform: scaleX(1);
+}
+
 
       main {
         /* Adjust main content to account for the fixed sidebar */
@@ -268,7 +293,7 @@ p, ul li {
   <body>
     <header>
       <nav>
-        <a href="../index.html">Home</a>
+        <a href="index.html">Home</a>
         <a href="about.html">About</a>
         <a href="skills.html">Skills</a>
         <a href="projects.html">Projects</a>
@@ -277,73 +302,73 @@ p, ul li {
     </header>
 
     <main>
-      <div class="about-section">
-        <h2>About Me</h2>
-        <p>
-          Hello! I'm Sweety Prasad, an enthusiastic **Frontend Developer** with
-          a strong foundation in creating dynamic, responsive, and user-friendly
-          web applications. I specialize in leveraging core web technologies like
-          **HTML**, **CSS**, and **JavaScript** to build engaging front-end interfaces.
-        </p>
-        <p>
-          My journey in development is driven by a genuine curiosity and a love
-          for problem-solving. I thrive on transforming creative ideas into
-          visually appealing and highly functional web experiences. I am
-          constantly exploring new techniques and best practices in web design
-          and development to deliver high-quality solutions.
-        </p>
-      </div>
+  <div class="about-section">
+    <h2>About Me</h2>
+    <p>
+      Hello! I'm <strong>Sweety Prasad</strong>, an enthusiastic <strong>Frontend Developer</strong> with
+      a strong foundation in creating dynamic, responsive, and user-friendly
+      web applications. I specialize in leveraging core web technologies like
+      <strong>HTML</strong>, <strong>CSS</strong>, and <strong>JavaScript</strong> to build engaging front-end interfaces.
+    </p>
+    <p>
+      My journey in development is driven by a genuine curiosity and a love
+      for problem-solving. I thrive on transforming creative ideas into
+      visually appealing and highly functional web experiences. I am
+      constantly exploring new techniques and best practices in web design
+      and development to deliver high-quality solutions.
+    </p>
+  </div>
 
-      <div class="about-section">
-        <h3>My Journey & Education</h3>
-        <p>
-          I am currently pursuing my **B.Sc in Computer Science** from Mumbai
-          University, where I'm gaining a solid theoretical and practical
-          understanding of computer science principles. My academic background,
-          combined with self-directed learning and hands-on project experience,
-          has equipped me with a comprehensive skill set for frontend development.
-        </p>
-      </div>
+  <div class="about-section">
+    <h3>My Journey & Education</h3>
+    <p>
+      I am currently pursuing my <strong>B.Sc in Computer Science</strong> from Mumbai
+      University, where I'm gaining a solid theoretical and practical
+      understanding of computer science principles. My academic background,
+      combined with self-directed learning and hands-on project experience,
+      has equipped me with a comprehensive skill set for frontend development.
+    </p>
+  </div>
 
-      <div class="about-section">
-        <h3>What I Bring to the Table</h3>
-        <ul>
-          <li>
-            **Responsive Design:** Expertise in building websites that look great
-            and function flawlessly across all devices and screen sizes.
-          </li>
-          <li>
-            **User-Centric Approach:** Focused on creating intuitive and
-            enjoyable user experiences through thoughtful design and interaction.
-          </li>
-          <li>
-            **Problem-Solving Skills:** Adept at analyzing complex requirements
-            and designing efficient, accessible solutions using web standards.
-          </li>
-          <li>
-            **Clean Code Advocate:** Committed to writing readable, maintainable,
-            and well-documented HTML, CSS, and JavaScript.
-          </li>
-          <li>
-            **Team Collaboration:** Enjoy working in collaborative environments,
-            contributing to team success, and learning from peers.
-          </li>
-          <li>
-            **Continuous Learning:** Passionate about staying updated with the
-            latest industry trends, web standards, and frontend technologies.
-          </li>
-        </ul>
-      </div>
+  <div class="about-section">
+    <h3>What I Bring to the Table</h3>
+    <ul>
+      <li>
+        <strong>Responsive Design:</strong> Expertise in building websites that look great
+        and function flawlessly across all devices and screen sizes.
+      </li>
+      <li>
+        <strong>User-Centric Approach:</strong> Focused on creating intuitive and
+        enjoyable user experiences through thoughtful design and interaction.
+      </li>
+      <li>
+        <strong>Problem-Solving Skills:</strong> Adept at analyzing complex requirements
+        and designing efficient, accessible solutions using web standards.
+      </li>
+      <li>
+        <strong>Clean Code Advocate:</strong> Committed to writing readable, maintainable,
+        and well-documented HTML, CSS, and JavaScript.
+      </li>
+      <li>
+        <strong>Team Collaboration:</strong> Enjoy working in collaborative environments,
+        contributing to team success, and learning from peers.
+      </li>
+      <li>
+        <strong>Continuous Learning:</strong> Passionate about staying updated with the
+        latest industry trends, web standards, and frontend technologies.
+      </li>
+    </ul>
+  </div>
 
-      <div class="about-section">
-        <h3>Beyond Coding</h3>
-        <p>
-          When I'm not immersed in code, you can find me enjoying [mention a hobby,
-          e.g., exploring new design trends, reading, sketching, photography].
-          These activities help me stay creative and bring a fresh perspective
-          to my development work.
-        </p>
-      </div>
-    </main>
-  </body>
+  <div class="about-section">
+    <h3>Beyond Coding</h3>
+    <p>
+      When I'm not immersed in code, you can find me enjoying
+      <strong>exploring new design trends</strong>, <strong>reading</strong>,
+      <strong>sketching</strong>, <strong>photography</strong>. These activities help me stay
+      creative and bring a fresh perspective to my development work.
+    </p>
+  </div>
+</main>
+</body>
 </html>
