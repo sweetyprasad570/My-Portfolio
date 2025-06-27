@@ -30,13 +30,14 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        z-index: 1000;
+        z-index: 100;
         border-right: 4px solid #ecf0f1;
       }
 
       nav {
         width: 100%;
-        
+        margin-top: 50px;
+        z-index: 200;
       }
 
       nav a {
@@ -48,13 +49,36 @@
         background: #3d566e;
         border-radius: 25px;
         text-align: center;
-        transition: 0.3s;
+        transition: all 0.3s ease;
         font-weight: bold;
+        position: relative;
+        z-index: 200;
       }
 
       nav a:hover {
         background: #1abc9c;
-        transform: scale(1.05);
+        transform: scale(1.03); /* Prevent too much grow */
+        color: #ffffff;
+      }
+
+      nav a::after {
+        content: "";
+        position: absolute;
+        left: 20%;
+        bottom: 6px;
+        width: 60%;
+        height: 3px;
+        background: #1abc9c;
+        opacity: 0;
+        transform: scaleX(0);
+        transition: 0.4s ease;
+        border-radius: 2px;
+        z-index: 199;
+      }
+
+      nav a:hover::after {
+        opacity: 1;
+        transform: scaleX(1);
       }
 
       main {
@@ -223,49 +247,49 @@
         box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
       /* Professional Gradient Background */
-body {
-  background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c2b);
-  background-size: 400% 400%;
-  animation: gradientFlow 18s ease infinite;
-  color: #fff;
-}
+      body {
+        background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c2b);
+        background-size: 400% 400%;
+        animation: gradientFlow 18s ease infinite;
+        color: #fff;
+      }
 
-/* Gradient animation keyframes */
-@keyframes gradientFlow {
-  0% {
-    background-position: 0% 50%;
-  }
+      /* Gradient animation keyframes */
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
 
-  50% {
-    background-position: 100% 50%;
-  }
+        50% {
+          background-position: 100% 50%;
+        }
 
-  100% {
-    background-position: 0% 50%;
-  }
-}
+        100% {
+          background-position: 0% 50%;
+        }
+      }
 
-/* Optional: add subtle glow to text for elegance */
-h1, .tagline {
-  text-shadow: 0 1px 3px rgba(0,0,0,0.4);
-}
+      /* Optional: add subtle glow to text for elegance */
+      h1,
+      .tagline {
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
+      }
 
-/* Optional: slightly brighter nav links on hover */
-nav a:hover {
-  background: #16a085;
-  color: #ffffff;
-}
-
+      /* Optional: slightly brighter nav links on hover */
+      nav a:hover {
+        background: #16a085;
+        color: #ffffff;
+      }
     </style>
   </head>
   <body>
     <header>
       <nav>
         <a href="index.html">Home</a>
-        <a href="templates/about.html">About</a>
-        <a href="templates/skills.html">Skills</a>
-        <a href="templates/projects.html">Projects</a>
-        <a href="templates/contact.html">Contact</a>
+        <a href="about.html">About</a>
+        <a href="skills.html">Skills</a>
+        <a href="projects.html">Projects</a>
+        <a href="contact.html">Contact</a>
       </nav>
     </header>
 
@@ -285,15 +309,16 @@ nav a:hover {
         <p class="tagline">Web Developer • UI Designer • Tech Enthusiast</p>
         <p class="summary">
           I'm passionate about creating beautiful and functional websites. I
-          specialize in frontend development using modern technologies like
-          HTML, CSS, JavaScript, and React. I love building user-friendly
-          interfaces that solve real-world problems.
+          specialize in <strong>frontend development</strong> using modern
+          technologies like <strong>HTML</strong>, <strong>CSS</strong>,
+          <strong>JavaScript</strong>, and <strong>React</strong>. I love
+          building user-friendly interfaces that solve real-world problems.
         </p>
 
         <div class="cta-buttons">
-          <a href="templates/resume.html" target="_blank">View Resume</a>
+          <a href="resume.html" target="_blank">View Resume</a>
 
-          <a href="templates/contact.html">Hire Me</a>
+          <a href="contact.html">Hire Me</a>
         </div>
 
         <div class="social-links" style="margin-top: 20px">
