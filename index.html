@@ -12,7 +12,8 @@
         font-family: "Segoe UI", sans-serif;
       }
 
-      html, body {
+      html,
+      body {
         height: 100%;
         width: 100%;
         overflow-x: hidden;
@@ -20,7 +21,24 @@
 
       body {
         display: flex;
-        background: #f4f7f9;
+        background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c2b);
+        background-size: 400% 400%;
+        animation: gradientFlow 18s ease infinite;
+        color: #fff;
+      }
+
+      @keyframes gradientFlow {
+        0% {
+          background-position: 0% 50%;
+        }
+
+        50% {
+          background-position: 100% 50%;
+        }
+
+        100% {
+          background-position: 0% 50%;
+        }
       }
 
       header {
@@ -86,15 +104,15 @@
       }
 
       main {
-        margin-left: 240px;
+        margin-left: 220px;
         padding: 60px 40px;
         display: flex;
         align-items: center;
-        justify-content: space-evenly;
+        justify-content: center;
         gap: 40px;
         flex-wrap: wrap;
         background: linear-gradient(to right, #e0f7fa, #f4f9fd);
-        width: calc(100% - 240px);
+        width: calc(100% - 220px);
         min-height: 100vh;
         animation: fadeIn 1.2s ease-in-out both;
       }
@@ -209,7 +227,7 @@
         }
       }
 
-      /* Background floating bubbles */
+      /* Background pattern overlay */
       body::before {
         content: "";
         position: fixed;
@@ -235,33 +253,13 @@
       }
 
       @keyframes float {
-        0%, 100% {
+        0%,
+        100% {
           transform: translateY(0px);
         }
 
         50% {
           transform: translateY(-10px);
-        }
-      }
-
-      body {
-        background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c2b);
-        background-size: 400% 400%;
-        animation: gradientFlow 18s ease infinite;
-        color: #fff;
-      }
-
-      @keyframes gradientFlow {
-        0% {
-          background-position: 0% 50%;
-        }
-
-        50% {
-          background-position: 100% 50%;
-        }
-
-        100% {
-          background-position: 0% 50%;
         }
       }
     </style>
