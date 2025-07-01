@@ -10,10 +10,16 @@
         padding: 0;
         box-sizing: border-box;
         font-family: "Segoe UI", sans-serif;
-    
-body {
+      }
+
+      html, body {
+        height: 100%;
+        width: 100%;
+        overflow-x: hidden;
+      }
+
+      body {
         display: flex;
-        min-height: 100vh;
         background: #f4f7f9;
       }
 
@@ -55,8 +61,7 @@ body {
       }
 
       nav a:hover {
-        background: #1abc9c;
-        transform: scale(1.03); /* Prevent too much grow */
+        background: #16a085;
         color: #ffffff;
       }
 
@@ -85,10 +90,13 @@ body {
         padding: 60px 40px;
         display: flex;
         align-items: center;
-        justify-content: flex-start;
+        justify-content: space-evenly;
         gap: 40px;
         flex-wrap: wrap;
         background: linear-gradient(to right, #e0f7fa, #f4f9fd);
+        width: calc(100% - 240px);
+        min-height: 100vh;
+        animation: fadeIn 1.2s ease-in-out both;
       }
 
       .profile-section {
@@ -109,6 +117,7 @@ body {
         box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
         border: 5px solid #fff;
         margin-bottom: 20px;
+        animation: float 3s ease-in-out infinite;
       }
 
       .profile-full {
@@ -129,6 +138,7 @@ body {
         font-size: 2.8rem;
         color: #2c3e50;
         margin-bottom: 10px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
       }
 
       .tagline {
@@ -136,6 +146,7 @@ body {
         color: #2980b9;
         font-weight: bold;
         margin-bottom: 20px;
+        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
       }
 
       .summary {
@@ -159,6 +170,8 @@ body {
 
       .cta-buttons a:hover {
         background: #1f618d;
+        transform: scale(1.05) translateY(-2px);
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
       }
 
       .social-links a {
@@ -192,9 +205,11 @@ body {
           padding: 30px 20px;
           flex-direction: column;
           align-items: center;
+          width: 100%;
         }
       }
-      /* Background floating bubbles effect */
+
+      /* Background floating bubbles */
       body::before {
         content: "";
         position: fixed;
@@ -205,11 +220,6 @@ body {
         background: url("https://www.transparenttextures.com/patterns/cubes.png");
         opacity: 0.08;
         z-index: -1;
-      }
-
-      /* Fade-in animation for main content */
-      main {
-        animation: fadeIn 1.2s ease-in-out both;
       }
 
       @keyframes fadeIn {
@@ -224,14 +234,8 @@ body {
         }
       }
 
-      /* Floating animation on profile image */
-      .profile-wrapper {
-        animation: float 3s ease-in-out infinite;
-      }
-
       @keyframes float {
-        0%,
-        100% {
+        0%, 100% {
           transform: translateY(0px);
         }
 
@@ -240,12 +244,6 @@ body {
         }
       }
 
-      /* Button hover bounce effect */
-      .cta-buttons a:hover {
-        transform: scale(1.05) translateY(-2px);
-        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-      }
-      /* Professional Gradient Background */
       body {
         background: linear-gradient(-45deg, #0f2027, #203a43, #2c5364, #1c1c2b);
         background-size: 400% 400%;
@@ -253,7 +251,6 @@ body {
         color: #fff;
       }
 
-      /* Gradient animation keyframes */
       @keyframes gradientFlow {
         0% {
           background-position: 0% 50%;
@@ -266,18 +263,6 @@ body {
         100% {
           background-position: 0% 50%;
         }
-      }
-
-      /* Optional: add subtle glow to text for elegance */
-      h1,
-      .tagline {
-        text-shadow: 0 1px 3px rgba(0, 0, 0, 0.4);
-      }
-
-      /* Optional: slightly brighter nav links on hover */
-      nav a:hover {
-        background: #16a085;
-        color: #ffffff;
       }
     </style>
   </head>
@@ -316,7 +301,6 @@ body {
 
         <div class="cta-buttons">
           <a href="templates/resume.html" target="_blank">View Resume</a>
-
           <a href="templates/contact.html">Hire Me</a>
         </div>
 
